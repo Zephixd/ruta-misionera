@@ -1,0 +1,24 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ruta-misionera",
+          "appId": "1:411316705049:android:f8535bd4292782645d5788",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ruta-misionera",
+          "configurations": {
+            "android": "1:411316705049:android:f8535bd4292782645d5788"
+          }
+        }
+      }
+    }
+  }
+}

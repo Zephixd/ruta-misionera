@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Colección de Usuarios y Pasaporte de Sellos
+    match /usuarios/{uid} {
+      // Lectura pública permitida para Leaderboard/Ranking de exploradores
+      allow read: if true;
+
+      // Creación y actualización para el usuario autenticado
+      allow create: if request.auth != null && request.auth.uid == uid;
+      allow update: if request.auth != null;
+      allow delete: if false;
+
+      // Subcolección de Sellos del Pasaporte
+      match /sellos/{sitioId} {
+        allow read: if true;
+        allow create, update: if request.auth != null && request.auth.uid == uid;
+        allow delete: if false;
+      }
+
+      // Subcolección de Amigos Referidos
+      match /referidos/{amigoUid} {
+        allow read: if request.auth != null;
+        allow create, update: if request.auth != null;
+        allow delete: if false;
+      }
+    }
+
+    // 2. Colección de Sitios Turísticos y Circuitos Jesuíticos
+    match /sitios/{sitioId} {
+      // Lectura pública: permite a turistas explorar el mapa y la historia
+      allow read: if true;
+
+      // Escritura: usuarios autenticados
+      allow write: if request.auth != null;
+
+      // Subcolección de Reseñas y Comentarios de la Comunidad
+      match /comentarios/{comentarioId} {
+        // Lectura pública de reseñas comunitarias
+        allow read: if true;
+
+        // Crear reseña: usuario autenticado y autor coincidente
+        allow create: if request.auth != null && request.resource.data.usuarioUid == request.auth.uid;
+
+        // Actualizar (ej: dar like) y eliminar (el autor)
+        allow update: if request.auth != null;
+        allow delete: if request.auth != null && resource.data.usuarioUid == request.auth.uid;
+      }
+    }
+  }
+}
