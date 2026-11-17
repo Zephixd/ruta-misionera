@@ -1,17 +1,28 @@
-# rutamisionera
+# Ruta Misionera
 
-A new Flutter project.
+Guía turística móvil de las misiones jesuíticas de San Ignacio Guazú (Misiones, Paraguay).
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- Mapa interactivo con los puntos históricos y la ubicación del visitante en tiempo real.
+- Ficha de cada sitio con su nombre en guaraní, descripción y narración en audio.
+- Check-in en los sitios visitados, comentarios, ranking y sistema de referidos.
+- Inicio de sesión y perfil de usuario.
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Flutter · Dart · Firebase Auth · Cloud Firestore · flutter_map · geolocator
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Cómo ejecutarlo
+
+Los archivos de configuración de Firebase no están en el repositorio. Generalos con
+[FlutterFire CLI](https://firebase.google.com/docs/flutter/setup) para tu propio proyecto:
+
+```bash
+flutterfire configure
+flutter pub get
+flutter run
+```
+
+---
+Desarrollado por **Mathias Britos Griffith (GreenKnow)**.

@@ -46,3 +46,12 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Archivos personales / de desarrollo (no se publican)
+/descripciones_puntos_mapa.txt
+/documento_final.html
+/generar_pdf.py
+/narraciones_tts_puntos.txt
+/test_mermaid.html
+/test_mermaid.pdf
+/test
