@@ -55,3 +55,4 @@ app.*.map.json
 /test_mermaid.html
 /test_mermaid.pdf
 /test
+/android/build/
